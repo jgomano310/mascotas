@@ -1,0 +1,58 @@
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()" novalidate>
+
+    <div class="mb-3">
+
+        <label class="form-label">id</label>
+        <input formControlName="id" type="text" class="form-control" required="">
+    
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">raza</label>
+        <input formControlName="raza" type="text" class="form-control" required="">
+    
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">nombrePropietario</label>
+        <input formControlName="nombrePropietario" type="text" class="form-control" required="">
+    
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">nombre</label>
+        <input formControlName="nombre" type="text" class="form-control" required="">
+    
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">especie</label>
+        <input formControlName="especie" type="text" class="form-control" required="">
+    
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">edad</label>
+        <input formControlName="edad" type="text" class="form-control" required="">
+    
+    </div>
+
+    <div class="mb-3">
+
+        <label class="form-label">sexo</label>
+        <input formControlName="sexo" type="text" class="form-control" required="">
+    
+    </div>
+
+    <button type="submit" class="btn btn-primary"> 
+        actualizar
+    </button>
+
+
+
+</form>
