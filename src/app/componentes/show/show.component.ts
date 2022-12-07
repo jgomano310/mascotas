@@ -34,7 +34,7 @@ export class ShowComponent implements OnInit {
           this.Mascotas = [];
           resp.forEach( (mascota: any) => {
             this.Mascotas.push({
-              id: mascota.payload.doc.id,
+              documentId: mascota.payload.doc.id,
               ...mascota.payload.doc.data()
             })
             //this.Mascotas.push(mascota.payload.doc.data());
@@ -45,7 +45,15 @@ export class ShowComponent implements OnInit {
 
 
     deleteRecord(id: string) {
-      this.servicio.delete(id);
+      
+      this.servicio.delete(id).then(
+        () =>{
+          console.log("hola");
+        }, (error)=>{
+          console.error(error);
+        }
+
+      );
     } 
   }
 

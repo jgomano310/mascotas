@@ -1,4 +1,5 @@
 export interface MascotasInterfaz {
+    documentId: string,
     id:any,
     raza:string,
     nombrePropietario:string,

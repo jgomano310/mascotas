@@ -10,44 +10,44 @@ import { ServicioService } from '../../servicios/servicio.service';
 })
 export class EditComponent implements OnInit {
 
-  public editForm:FormGroup
-  posRef:any
+  public editForm: FormGroup
+  posRef: any
   constructor(
 
-    public servicio:ServicioService,
-    public formBuilder:FormBuilder,
-    private activeRoute:ActivatedRoute,
-    private Router:Router
-  ){
-    this.editForm=this.formBuilder.group({
+    public servicio: ServicioService,
+    public formBuilder: FormBuilder,
+    private activeRoute: ActivatedRoute,
+    private Router: Router
+  ) {
+    this.editForm = this.formBuilder.group({
       id: [''],
-    raza:[''],
-    nombrePropietario:[''],
-    nombre:[''],
-    especie:[''],
-    edad:[''],
-    sexo:['']
+      raza: [''],
+      nombrePropietario: [''],
+      nombre: [''],
+      especie: [''],
+      edad: [''],
+      sexo: ['']
     })
 
   }
   ngOnInit(): void {
-    const id=this.activeRoute.snapshot.paramMap.get('id')
-    this.servicio.getPostById(id).subscribe(res=>{
-      this.posRef=res
-      this.editForm=this.formBuilder.group({
+    const id = this.activeRoute.snapshot.paramMap.get('id')
+    this.servicio.getPostById(id).subscribe(res => {
+      this.posRef = res;
+      this.editForm = this.formBuilder.group({
         id: [this.posRef.id],
-    raza:[this.posRef.raza],
-    nombrePropietario:[this.posRef.nombrePropietario],
-    nombre:[this.posRef.nombre],
-    especie:[this.posRef.especie],
-    edad:[this.posRef.edad],
-    sexo:[this.posRef.sexo]
+        raza: [this.posRef.raza],
+        nombrePropietario: [this.posRef.nombrePropietario],
+        nombre: [this.posRef.nombre],
+        especie: [this.posRef.especie],
+        edad: [this.posRef.edad],
+        sexo: [this.posRef.sexo]
       })
     })
   }
 
-  onSubmit(){
-    const id =this.activeRoute.snapshot.paramMap.get('id')
+  onSubmit() {
+    const id = this.activeRoute.snapshot.paramMap.get('id')
     this.servicio.update(this.editForm.value, id)
     this.Router.navigate([''])
   }
